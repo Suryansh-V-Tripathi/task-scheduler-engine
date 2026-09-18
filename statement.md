@@ -1,17 +1,17 @@
 # Problem Statement & Scope
 
 ## Problem Statement
-Modern background systems require efficient scheduling and dependency management. Existing lightweight utilities often lack graph-based dependency resolution and multi-threaded execution in a clean CLI interface.
+When running background tasks, it can be tricky to manage which task runs first if one depends on another. Many basic command-line tools don't handle task dependencies or run tasks asynchronously on multiple threads.
 
 ## Scope of the Project
-The Autonomous Task Scheduler Engine is a Java CLI tool that executes system shell commands based on 5-part cron schedules and Directed Acyclic Graph (DAG) task dependency chains.
+This project is a simple Java CLI tool I built to practice Java concepts. It takes command-line tasks, checks their schedule format, sorts them based on dependencies so they run in the right order, and executes them using threads.
 
 ## Target Users
-* System Administrators automating routine CLI workflows.
-* Developers needing lightweight execution pipelines locally.
+* Students learning how task dependencies work in Java.
+* Anyone looking for a simple command-line task executor.
 
-## High-Level Features
-* **Cron Expression Parser**: Evaluates 5-part cron syntax to schedule jobs.
-* **DAG Dependency Engine**: Handles task execution order using topological sorting.
-* **Asynchronous Execution**: Thread-pool execution via native process isolation.
-* **Metrics & Logging**: Collects runtime stats, execution latency, and log outputs.
+## Features
+* **Cron Checker**: Checks if a 5-part cron string is formatted correctly.
+* **Dependency Manager**: Uses a graph structure to make sure dependent tasks wait their turn.
+* **Thread Execution**: Uses Java's ExecutorService to run tasks.
+* **Basic Logging**: Prints timestamps and success/failure stats to the console.
